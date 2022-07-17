@@ -1,0 +1,80 @@
+{
+  "name": "@yoki-labs/starboard",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "npx tsc",
+    "lint": "eslint src/",
+    "lint:fix": "yarn lint --fix",
+    "dev": "nodemon .",
+    "dev:start": "docker-compose -f docker-compose.dev.yml -f docker-compose.yml up --build",
+    "dev:down": "docker-compose -f docker-compose.dev.yml -f docker-compose.yml down -v",
+    "dev:logs": "docker-compose -f docker-compose.dev.yml -f docker-compose.yml logs -f bot",
+    "prettier": "prettier --write **/*.{ts,js,json,yml,yaml}",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@guildedjs/gil": "^0.2.16",
+    "dotenv": "^8.2.0",
+    "ioredis": "^5.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-angular": "^16.0.0",
+    "@guildedjs/guilded-api-typings": "^2.8.3",
+    "@sapphire/eslint-config": "^4.2.0",
+    "@sapphire/ts-config": "^3.3.1",
+    "eslint": "^8.9.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.3",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.0.2"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-angular"
+    ],
+    "rules": {
+      "scope-case": [
+        2,
+        "always",
+        "pascal-case"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "chore",
+          "build",
+          "ci",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "printWidth": 150,
+    "quoteProps": "as-needed",
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": true
+  }
+}

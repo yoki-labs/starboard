@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  bot:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: sh -c "npm i typescript && npm run dev"
+    volumes:
+      - "./src:/usr/app/src"

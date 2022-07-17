@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  bot:
+    image: ghcr.io/yoki-labs/starboard/bot:latest
+    container_name: GSTARBOARD_BOT
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    networks:
+      - main-network
+  cache:
+    image: redislabs/redismod:latest
+    container_name: GSTARBOARD_CACHE
+    restart: unless-stopped
+    networks:
+      - main-network
+    ports:
+      - "6379:6379"
+
+networks:
+  main-network:
+    driver: bridge

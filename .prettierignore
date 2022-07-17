@@ -1,0 +1,16 @@
+package.json
+
+node_modules/
+dist/
+types/
+coverage/
+data/
+volumes/
+docker/
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

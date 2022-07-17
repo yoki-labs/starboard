@@ -1,0 +1,26 @@
+name: CI workflows
+on: [push, pull_request]
+
+jobs:
+    quality:
+        name: Quality Check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repo
+              uses: actions/checkout@v3
+
+            - name: Set up Node v16
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Run linter
+              run: yarn lint
+
+            - name: Run TypeScript Compiler
+              run: yarn build
+
