@@ -8,6 +8,8 @@ services:
       - ./.env
     networks:
       - main-network
+    depends_on:
+      - cache
   cache:
     image: redis:latest
     container_name: GSTARBOARD_CACHE
