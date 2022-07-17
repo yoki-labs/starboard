@@ -26,7 +26,7 @@ export default function reactionAdd(client: StarboardClient) {
 							[
 								fetchedMessage.content,
 								"",
-								`[Jump to message](https://www.guilded.gg/Yoki/channels/${fetchedMessage.channelId}/chat?messageId=${fetchedMessage.id})`
+								`[Jump to message](https://www.guilded.gg/${fetchedMessage.serverId!}/channels/${fetchedMessage.channelId}/chat?messageId=${fetchedMessage.id})`
 							].join("\n")
 						)
 						.setFooter(fetchedMessage.id)
