@@ -9,14 +9,20 @@ services:
     networks:
       - main-network
   cache:
-    image: redislabs/redismod:latest
+    image: redis:latest
     container_name: GSTARBOARD_CACHE
     restart: unless-stopped
     networks:
       - main-network
     ports:
-      - "6379:6379"
+      - "6380:6380"
+    command: redis-server --port 6380
+    volumes: 
+      - redis-data:/data
 
 networks:
   main-network:
     driver: bridge
+
+volumes:
+  redis-data:
