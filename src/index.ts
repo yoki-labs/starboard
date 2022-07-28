@@ -16,6 +16,7 @@ const client = new StarboardClient({
 client.on("messageReactionCreated", reactionAdd(client));
 client.on("messageReactionDeleted", reactionRemove(client));
 client.on("ready", () => console.log(`Logged in as ${client.user!.name}`));
+client.on("debug", console.log);
 client.login();
 
 process.on("unhandledRejection", console.log);
