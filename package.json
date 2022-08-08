@@ -16,7 +16,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@guildedjs/gil": "^0.2.16",
+    "@guildedjs/gil": "0.2.19",
     "dotenv": "^8.2.0",
     "ioredis": "^5.0.3"
   },
